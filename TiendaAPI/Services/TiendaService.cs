@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using TiendaAPI.Data;
 using TiendaAPI.Entities;
@@ -14,24 +15,24 @@ public class TiendaService : ITiendaService
         _context = context;
     }
 
-    public async Task<IEnumerable<Tienda>> GetAllAsync()
+    public async Task<IEnumerable<Tiendas>> GetAllAsync()
     {
         return await _context.Tiendas.ToListAsync();
     }
 
-    public async Task<Tienda?> GetByIdAsync(int id)
+    public async Task<Tiendas?> GetByIdAsync(int id)
     {
         return await _context.Tiendas.FindAsync(id);
     }
 
-    public async Task<Tienda> CreateAsync(Tienda tienda)
+    public async Task<Tiendas> CreateAsync(Tiendas tienda)
     {
         _context.Tiendas.Add(tienda);
         await _context.SaveChangesAsync();
         return tienda;
     }
 
-    public async Task UpdateAsync(Tienda tienda)
+    public async Task UpdateAsync(Tiendas tienda)
     {
         _context.Entry(tienda).State = EntityState.Modified;
         await _context.SaveChangesAsync();

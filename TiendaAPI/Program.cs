@@ -55,6 +55,7 @@ builder
 builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<ITiendaService, TiendaService>(); // <-- Asegúrate de tener estos servicios implementados
 builder.Services.AddScoped<IArticuloService, ArticuloService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddSwaggerGen();
 

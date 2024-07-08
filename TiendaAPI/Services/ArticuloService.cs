@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using TiendaAPI.Data;
 using TiendaAPI.Entities;
@@ -45,5 +46,12 @@ public class ArticuloService : IArticuloService
             _context.Articulos.Remove(articulo);
             await _context.SaveChangesAsync();
         }
+    }
+
+    public async Task<IEnumerable<Articulo>> GetByTiendaIdAsync(int tiendaId)
+    {
+        return await _context
+            .Articulos.Where(a => a.ArticulosTienda.Any(at => at.TiendaId == tiendaId))
+            .ToListAsync();
     }
 }

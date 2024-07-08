@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TiendaAPI.Entities;
 
-public class Tienda
+public class Tiendas
 {
     [Key]
     public int Id { get; set; }
@@ -20,7 +20,7 @@ public class Tienda
     // Propiedad de navegación para los artículos en la tienda (Relación 1 a Muchos)
     public ICollection<ArticuloTienda> ArticulosTienda { get; set; } = new List<ArticuloTienda>();
 
-    public Tienda()
+    public Tiendas()
     {
         CreatedAt = DateTime.UtcNow;
         UpdatedAt = DateTime.UtcNow;

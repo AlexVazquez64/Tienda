@@ -13,6 +13,6 @@ public class ArticuloTienda
     public int Stock { get; set; }
 
     // Propiedades de navegación para las entidades relacionadas
-    public Articulo Articulo { get; set; }
-    public Tienda Tienda { get; set; }
+    public Articulo? Articulo { get; set; }
+    public Tiendas? Tienda { get; set; }
 }
